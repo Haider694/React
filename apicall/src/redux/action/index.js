@@ -28,6 +28,13 @@ export const clrCart = (product) => {
     }
 
 }
+export const totalCart = (product) => {
+    return {
+        type: "PTOTAL",
+        payload: product
+    }
+
+}
 
 export const incCart = (product) => {
     return {

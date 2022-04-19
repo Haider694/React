@@ -12,6 +12,7 @@ const handleCart = (state = cart, action) => {
                     {
                         ...product,
                         qty: 1,
+                        total:product.price,
                     }
                 ]
             }
@@ -23,18 +24,25 @@ const handleCart = (state = cart, action) => {
             }
             break;
         case "DECCART":
-            return state.map((x) => x.id === product.id ? { ...x, qty: x.qty - 1 } : x);
+            return state.map((x) => x.id === product.id ? { ...x, qty: x.qty - 1,total:(x.qty-1)*x.price } : x);
             break;
 
         case "INCCART":
 
-            return state.map((x) => x.id === product.id ? { ...x, qty: x.qty + 1 } : x);
+            return state.map((x) => x.id === product.id ? { ...x, qty: x.qty + 1,total:(x.qty+1)*x.price } : x);
 
             break;
+        case "PTOTAL":
+            return state.reduce((x)=>x.length>0 ? {
+                ...x,
+                total:x.qty*x.price,
+                p_total:0,
+               
+            }:x)
         case "CLRCART":
              if (state.length > 0) {
 
-                return  { product: []}
+                return cart;
                 
 
             }
