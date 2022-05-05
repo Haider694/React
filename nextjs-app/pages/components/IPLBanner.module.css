@@ -1,0 +1,16 @@
+.container {
+    background: repeating-linear-gradient(
+      155deg,
+      rgb(2, 74, 168) 45px,
+      rgb(2, 74, 168) 86px,
+      rgb(0, 66, 153) 60px,
+      rgb(0, 66, 153) 120px
+    );
+    color: white;
+    align-items: center;
+  }
+  .button{
+    border-radius:"25px";
+    background-color: rgb(0, 66, 153) 120px;
+    color:"blue";
+  }
